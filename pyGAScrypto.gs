@@ -3,9 +3,7 @@ function encrypt(cleartext,password,salt){
   // if not a dict, just comment out this line
   // add type checker later...
   var cleartext = JSON.stringify(cleartext)
-
-  var password = "lazydog";
-  var salt = "salt";
+  
   var iterations = 1000;
   var bytes = CryptoJS.PBKDF2(password, salt, { keySize: 256, iterations: iterations,hasher: CryptoJS.algo.SHA256 });
   var iv = CryptoJS.enc.Hex.parse(bytes.toString().slice(0, 32));
