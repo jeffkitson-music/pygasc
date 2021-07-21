@@ -1,8 +1,8 @@
 # pyGAScrypto
-Interoperabilty between Google Apps Script CryptoJS and Python cryptography
+Interoperabilty between Google Apps Script CryptoJS and Python cryptography.
 
 ## About
-These scripts use the AES standard with KBKDF2 key derivation. While each script can encode and decode independently, the primary function is to provide interoperability between Python and CryptoJS in Google Apps Script (GAS)
+These scripts use the AES standard with PBKDF2 key derivation. While each script can encode and decode independently, the primary function is to provide interoperability between Python and CryptoJS in Google Apps Script (GAS)
 
 ## Dependencies 
 **Python**
