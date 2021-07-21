@@ -59,7 +59,8 @@ Set up the script in it's own script/project file
 Save it and copy the script id in the browser URL
 Example: https://script.google.com/home/projects/<THIS IS THE SCRIPT ID>/edit
 
-In your second script, click the + next to the Library and paste your script id into the dialog box
+Create a second script/project
+Click the + next to the Library and paste your script id into the dialog box
 Name the library for use in this script. Example below. 
 */
 function libraryDEMO(){
