@@ -1,10 +1,14 @@
 # pyGAScrypto
 Interoperabilty between Google Apps Script CryptoJS and Python cryptography.
 
-## About
-These scripts use the AES standard with PBKDF2 key derivation. While each script can encode and decode independently, the primary function is to provide interoperability between Python and CryptoJS in Google Apps Script (GAS)
+## :lock: About
+These scripts use the AES standard with PBKDF2 key derivation. While each script can encode and decode in a self-contained manner, the primary function is to provide interoperable cryptography between Python and CryptoJS in Google Apps Script (GAS).
 
-## Dependencies 
+:lock: Primary Uses:
+- :unlock: Encrypt in Python/Decrypt in Google Apps Script
+- :unlock: Encrypt in Google Apps Script/Decrypt in Python
+
+## :books: Dependencies 
 **Python**
 
 - cryptography (pip install cryptography)
@@ -12,7 +16,7 @@ These scripts use the AES standard with PBKDF2 key derivation. While each script
 **Google Apps Script**
 - [CryptoJS](https://github.com/brix/crypto-js) is required. [The raw script](https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js) can simply be cut and pasted into it's own file in the Google Apps Script IDE.
 
-## Example Use
+## :eyes: Example Use
 **Python**
 ```python
 # This is not a pip-installable package. You can just pull or cut/paste the code into your own script.
@@ -65,5 +69,5 @@ function libraryDEMO(){
   // etc...
 }
 ```
-## Shoutouts
+## :mega:  Shoutouts
 Lorem Ipsum...
