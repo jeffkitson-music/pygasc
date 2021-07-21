@@ -19,7 +19,10 @@ salt = salt
 
 cleartext = "Hello World"
 
-ciphertext = pgasc.encode(cleartext, password, salt)
+ciphertext = pgasc.encypt(cleartext, password, salt)
+print(ciphertext)
+decoded_cleartext = pgasc.decrypt(ciphertext, password, salt)
+
 
 ```
 GAS
