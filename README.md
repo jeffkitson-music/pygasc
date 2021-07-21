@@ -9,7 +9,32 @@ CryptoJS is required. The script can simply be cut and pasted into it's own file
 
 ## Example Use
 Python
-...
+```
+# This is not a pip-installable package. You can just cut/paste the code into your own script.
+import pyGAScrypto as pgasc
 
+# Demo Settings
+password = "lazydog"
+salt = salt
+
+cleartext = "Hello World"
+
+ciphertext = pgasc.encode(cleartext, password, salt)
+
+```
 GAS
-...
+```javascript
+function cryptpDEMO(){
+  var myDict = {"hello":"world"}
+  var password = "lazydog"
+  var salt = "salt"
+  var ciphertext= encrypt(myDict,password,salt)
+  Logger.log("Ciphertext:")
+  Logger.log(ciphertext)
+  var clear = decrypt(ciphertext,password,salt)
+  Logger.log("Decrypted Cleartext:")
+  Logger.log(clear)
+}
+```
+## Shoutouts
+Lorem Ipsum...
