@@ -25,7 +25,7 @@ decoded_cleartext = pgasc.decrypt(ciphertext, password, salt)
 
 
 ```
-GAS
+Google Apps Script
 ```javascript
 function cryptpDEMO(){
   var myDict = {"hello":"world"}
