@@ -22,6 +22,7 @@ cleartext = "Hello World"
 ciphertext = pgasc.encypt(cleartext, password, salt)
 print(ciphertext)
 decoded_cleartext = pgasc.decrypt(ciphertext, password, salt)
+print(decoded_cleartext)
 
 
 ```
