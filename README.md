@@ -6,13 +6,14 @@ These scripts use the AES standard with KBKDF2 key derivation. While each script
 
 ## Dependencies 
 **Python**
-cryptography (pip install cryptography)
+
+- cryptography (pip install cryptography)
 
 **Google Apps Script**
-[CryptoJS](https://github.com/brix/crypto-js) is required. [The raw script](https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js) can simply be cut and pasted into it's own file in the Google Apps Script IDE.
+- [CryptoJS](https://github.com/brix/crypto-js) is required. [The raw script](https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js) can simply be cut and pasted into it's own file in the Google Apps Script IDE.
 
 ## Example Use
-Python
+**Python**
 ```python
 # This is not a pip-installable package. You can just cut/paste the code into your own script.
 import pyGAScrypto as pgasc
@@ -30,7 +31,7 @@ print(decoded_cleartext)
 
 
 ```
-Google Apps Script
+**Google Apps Script**
 ```javascript
 function cryptpDEMO(){
   var myDict = {"hello":"world"}
@@ -44,8 +45,8 @@ function cryptpDEMO(){
   Logger.log(clear)
 }
 ```
-Use in GAS in another project/import as a library
-```
+**Use in GAS in another project/import as a library**
+```javascript
 /*
 Set up the script in it's own script/project file
 Save it and copy the script id in the browser URL
