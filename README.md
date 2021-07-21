@@ -34,12 +34,15 @@ print(decoded_cleartext)
 **Google Apps Script**
 ```javascript
 function cryptpDEMO(){
+
   var myDict = {"hello":"world"}
   var password = "lazydog"
   var salt = "salt"
+  
   var ciphertext= encrypt(myDict,password,salt)
   Logger.log("Ciphertext:")
   Logger.log(ciphertext)
+  
   var clear = decrypt(ciphertext,password,salt)
   Logger.log("Decrypted Cleartext:")
   Logger.log(clear)
