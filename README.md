@@ -9,7 +9,7 @@ CryptoJS is required. The script can simply be cut and pasted into it's own file
 
 ## Example Use
 Python
-```
+```python
 # This is not a pip-installable package. You can just cut/paste the code into your own script.
 import pyGAScrypto as pgasc
 
