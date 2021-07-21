@@ -29,8 +29,11 @@ salt = salt
 cleartext = "Hello World"
 
 ciphertext = pgasc.encypt(cleartext, password, salt)
+print("Ciphertext:")
 print(ciphertext)
+print()
 decoded_cleartext = pgasc.decrypt(ciphertext, password, salt)
+print("Decoded Cleartext:")
 print(decoded_cleartext)
 
 
@@ -43,7 +46,7 @@ function cryptpDEMO(){
   var password = "lazydog"
   var salt = "salt"
   
-  var ciphertext= encrypt(myDict,password,salt)
+  var ciphertext = encrypt(myDict,password,salt)
   Logger.log("Ciphertext:")
   Logger.log(ciphertext)
   
