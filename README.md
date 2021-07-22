@@ -25,7 +25,7 @@ import pyGAScrypto as pgasc
 
 # Demo Settings
 password = "lazydog"
-salt = salt
+salt = "salt"
 
 cleartext = "Hello World"
 # Note: also accepts dictionaries and lists 
@@ -33,19 +33,16 @@ cleartext = "Hello World"
 # cleartext = {"hello":"world"} or cleartext = ["hello","world"] etc...
 
 ciphertext = pgasc.encypt(cleartext, password, salt)
-print("Ciphertext:")
-print(ciphertext)
-
+print("Ciphertext: ",ciphertext)
 
 decoded_cleartext = pgasc.decrypt(ciphertext, password, salt)
-print("Decoded Cleartext:")
-print(decoded_cleartext)
+print("Decoded Cleartext: ",decoded_cleartext)
 
 
 ```
 **Google Apps Script**
 ```javascript
-function cryptpDEMO(){
+function gasExample(){
 
   var cleartext = "Hello World"
   // Note: also accepts objects - script will stringifiy if an object type is detected.
@@ -81,4 +78,10 @@ function libraryDEMO(){
 }
 ```
 ## :mega:  Shoutouts
-Lorem Ipsum...
+- [Zergatul](https://stackoverflow.com/users/960055/zergatul) in [this thread](https://stackoverflow.com/questions/59488728/aes-encrypt-in-cryptojs-decrypt-in-pycrypto) on Stackoverflow. This thread helped me get the basic concepts in PyCrypto to transfer them over to cryptography. 
+
+- [Nguyễn Thành Nghĩa] in [this thread](https://stackoverflow.com/questions/39311514/how-to-decrypt-aes-with-cryptojs) on Stackoverflow. This thread helped me to get the decryption right in GAS/JavaScript.
+
+- [PM 2Ring](https://stackoverflow.com/users/4014959/pm-2ring) in [this thread](https://stackoverflow.com/questions/50062663/encryption-decryption-using-aes-cbc-pkcs7padding) on Stackoverflow. The final piece of the puzzle was adding the padding in Python cryptography to match CryptoJS. CryptoJS pads natively, and cryptograpy doesn't!
+
+- [Amit Agarwal](https://www.labnol.org/about) for always having so many free resources on Google Apps Script. So often when I'm making personal projects I'll search something he's almost always the first result. I've started commenting "Amit to the rescue...again!" in my code whenever I use one of his solutions. Thank you, Amit, for teaching this amateur to use Apps Script. I am forever grateful. 
