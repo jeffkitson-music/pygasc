@@ -28,11 +28,15 @@ password = "lazydog"
 salt = salt
 
 cleartext = "Hello World"
+# Note: also accepts dictionaries and lists 
+# Script will convert to string if a dictionary or is detected.
+# cleartext = {"hello":"world"} or cleartext = ["hello","world"] etc...
 
 ciphertext = pgasc.encypt(cleartext, password, salt)
 print("Ciphertext:")
 print(ciphertext)
-print()
+
+
 decoded_cleartext = pgasc.decrypt(ciphertext, password, salt)
 print("Decoded Cleartext:")
 print(decoded_cleartext)
@@ -43,7 +47,9 @@ print(decoded_cleartext)
 ```javascript
 function cryptpDEMO(){
 
-  var myDict = {"hello":"world"}
+  var cleartext = "Hello World"
+  // Note: also accepts objects - script will stringifiy if an object type is detected.
+  // cleartext = {"hello":"world"}
   var password = "lazydog"
   var salt = "salt"
   
