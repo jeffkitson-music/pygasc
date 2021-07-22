@@ -11,10 +11,9 @@ from cryptography.hazmat.backends import default_backend
 # It is compatible with the Google Apps Script version of CryptoJS
 
 def decrypt(ciphertext, password, salt):
-    # Begin
     data = b64decode(ciphertext)
     kdf = PBKDF2HMAC(
-        algorithm=hashes.SHA256(),  # <==== YOU FUCKING MOTHERFUCKER! (Was SHA256)
+        algorithm=hashes.SHA256(),
         length=256,  # same as key size?
         salt=salt.encode("utf-8"),
         iterations=1000,
@@ -68,11 +67,16 @@ def encrypt(cleartext, password, salt):
     return ct_out
 
 
-cleartext = "helloworld"
-ciphertext = encrypt(cleartext, password="lazydog", salt="salt")
-print("Ciphertext:")
-print(ciphertext)
-print()
-clear = decrypt(ciphertext,password="lazydog",salt="salt")
-print("Decrypted cleartext:")
-print(clear)
+def example():
+    # cleartext takes strings, objects, or arrays
+    cleartext = {"hello":"world"}
+    pw = "lazydog"
+    salt = "salt"
+
+    ciphertext = encrypt(cleartext, password=pw, salt=salt)
+    print("Original: ",cleartext)
+    print("Ciphertext: ",ciphertext) # you may need to ciphertext.decode()
+    clear = decrypt(ciphertext, password=pw, salt=salt)
+    print("Decrypted from ciphertext: ",clear)
+
+example()
