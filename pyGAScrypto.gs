@@ -1,8 +1,9 @@
 function encrypt(cleartext,password,salt){
 
-  // if not a dict, just comment out this line
-  // add type checker later...
-  var cleartext = JSON.stringify(cleartext)
+  // If 
+  if (typeof cleartext == "object" || typeof cleartext == "array"){
+    var cleartext = JSON.stringify(cleartext)
+  }
   
   var iterations = 1000;
   var bytes = CryptoJS.PBKDF2(password, salt, { keySize: 256, iterations: iterations,hasher: CryptoJS.algo.SHA256 });
