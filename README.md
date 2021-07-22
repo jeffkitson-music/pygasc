@@ -19,7 +19,8 @@ These scripts use the AES standard with PBKDF2 key derivation. While each script
 ## :eyes: Example Use
 **Python**
 ```python
-# This is not a pip-installable package. You can just pull or cut/paste the code into your own script.
+# This is not a pip-installable package. 
+# You can just pull or cut/paste the code into your own script.
 import pyGAScrypto as pgasc
 
 # Demo Settings
