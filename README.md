@@ -2,13 +2,13 @@
 Interoperabilty between Google Apps Script CryptoJS and Python cryptography.
 
 ## :lock: About
-These scripts use the AES standard with PBKDF2 key derivation. While each script can encode and decode in a self-contained manner, the primary function is to provide interoperable cryptography between Python and CryptoJS in Google Apps Script (GAS). Apps Script is not strictly needed, however. This will work fine with Python and vanilla JavaScript. 
+The implementation uses the AES standard with PBKDF2 key derivation, and essentially just matches AES parameters across langagues. While each script can encode and decode in a self-contained manner, the primary function is to provide interoperable cryptography between Python and CryptoJS in Google Apps Script (GAS). Apps Script is not strictly needed, however. This will work fine with Python and CryptoJS in vanilla JavaScript. 
 
 :lock: Primary Uses:
-- :unlock: Encrypt in Python/Decrypt in Google Apps Script
-- :unlock: Encrypt in Google Apps Script/Decrypt in Python
-- :unlock: Encrypt in CryptoJS/Decrypt in Python
-- :unlock: Encrypt in Python/Decrypt in CryptoJS
+- :lock: Encrypt in Python/Decrypt in Google Apps Script
+- :lock: Encrypt in Google Apps Script/Decrypt in Python
+- :lock: Encrypt in CryptoJS/Decrypt in Python
+- :lock: Encrypt in Python/Decrypt in CryptoJS
 
 ## :books: Dependencies 
 **Python**
@@ -16,7 +16,7 @@ These scripts use the AES standard with PBKDF2 key derivation. While each script
 - cryptography (pip install cryptography)
 
 **Google Apps Script**
-- [CryptoJS](https://github.com/brix/crypto-js) is required. [The raw script](https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js) can simply be cut and pasted into it's own file in the Google Apps Script IDE.
+- [CryptoJS](https://github.com/brix/crypto-js) is required. [The raw script](https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js) can simply be cut and pasted into it's own file alongside this script in the Google Apps Script IDE.
 
 ## :eyes: Example Use
 **Python**
