@@ -80,7 +80,7 @@ function libraryDEMO(){
 ## :mega:  Shoutouts
 - [Zergatul](https://stackoverflow.com/users/960055/zergatul) in [this thread](https://stackoverflow.com/questions/59488728/aes-encrypt-in-cryptojs-decrypt-in-pycrypto) on Stackoverflow. This thread helped me get the basic concepts in PyCrypto to transfer them over to cryptography. 
 
-- [Nguyễn Thành Nghĩa] in [this thread](https://stackoverflow.com/questions/39311514/how-to-decrypt-aes-with-cryptojs) on Stackoverflow. This thread helped me to get the decryption right in GAS/JavaScript.
+- [Nguyễn Thành Nghĩa](https://stackoverflow.com/users/9454452/nguy%e1%bb%85n-th%c3%a0nh-ngh%c4%a9a) in [this thread](https://stackoverflow.com/questions/39311514/how-to-decrypt-aes-with-cryptojs) on Stackoverflow. This thread helped me to get the decryption right in GAS/JavaScript.
 
 - [PM 2Ring](https://stackoverflow.com/users/4014959/pm-2ring) in [this thread](https://stackoverflow.com/questions/50062663/encryption-decryption-using-aes-cbc-pkcs7padding) on Stackoverflow. The final piece of the puzzle was adding the padding in Python cryptography to match CryptoJS. CryptoJS pads natively, and cryptograpy doesn't!
 
