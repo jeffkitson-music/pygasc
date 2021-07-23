@@ -2,11 +2,13 @@
 Interoperabilty between Google Apps Script CryptoJS and Python cryptography.
 
 ## :lock: About
-These scripts use the AES standard with PBKDF2 key derivation. While each script can encode and decode in a self-contained manner, the primary function is to provide interoperable cryptography between Python and CryptoJS in Google Apps Script (GAS).
+These scripts use the AES standard with PBKDF2 key derivation. While each script can encode and decode in a self-contained manner, the primary function is to provide interoperable cryptography between Python and CryptoJS in Google Apps Script (GAS). Apps Script is not strictly needed, however. This will work fine with Python and vanilla JavaScript. 
 
 :lock: Primary Uses:
 - :unlock: Encrypt in Python/Decrypt in Google Apps Script
 - :unlock: Encrypt in Google Apps Script/Decrypt in Python
+- :unlock: Encrypt in CryptoJS/Decrypt in Python
+- :unlock: Encrypt in Python/Decrypt in CryptoJS
 
 ## :books: Dependencies 
 **Python**
