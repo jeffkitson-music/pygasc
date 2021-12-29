@@ -34,3 +34,29 @@ function decrypt(ciphertext,key){
 
   return cleartext
 }
+
+function deriveRandomKey() {
+  
+  // Set variables
+  var key_length = 32
+  var s = ''; // random string
+  var r = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  
+  // Create random string
+  for (var i=0; i < key_length; i++) { s += r.charAt(Math.floor(Math.random()*r.length)); }
+        
+  // Base64 Encode the random string
+  key  = Utilities.base64EncodeWebSafe(s)
+  Logger.log(key)
+    
+  // Finally
+  return key;
+
+}
+
+
+function deriveKeyFromPW() {
+  // derives key from password/salt
+  // working on it...
+
+}
