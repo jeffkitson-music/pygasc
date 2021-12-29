@@ -7,6 +7,16 @@ function example(){
   Logger.log("Here is the decrypted cleartext: "+decrypted_clear)
 }
 
+function exampleTwo(){
+  var cleartext = "Hello Python!"
+  key = getakey()
+
+  var ciphertext = encrypt(cleartext, key)
+  Logger.log("Here is the ciphertext: "+ciphertext)
+  var decrypted_clear = decrypt(ciphertext,key)
+  Logger.log("Here is the decrypted cleartext: "+decrypted_clear)
+
+}
 
 function encrypt(cleartext, key) {
   var secret = new fernet.Secret(key);
@@ -36,17 +46,15 @@ function decrypt(ciphertext,key){
 }
 
 function deriveRandomKey(){
-  // with help from https://stackoverflow.com/questions/20767186/google-apps-script-random-string-generating?rq=1
+  // With help from https://stackoverflow.com/questions/20767186/google-apps-script-random-string-generating?rq=1
   
-  // Set variables
-  var random_string  ="";
-  var key_length = 32;
-
-  // Create random string
-  for (var i = 1; i < key_length ; i++) { 
-    random_string += String.fromCharCode(97 + Math.random()*10);
-  } 
-  //Logger.log(random_string)
+  // Set-up
+  var key_length = 32
+  var random_string = ''; 
+  var r = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  
+  // Derive random string
+  for (var i=0; i < key_length; i++) { random_string += r.charAt(Math.floor(Math.random()*r.length)); }
   
   // Base64 Encode the random string
   key  = Utilities.base64EncodeWebSafe(random_string)
@@ -54,7 +62,8 @@ function deriveRandomKey(){
   
   // Finally
   return key;    
-} 
+};
+
 
 function deriveKeyFromPW() {
   // derives key from password/salt
