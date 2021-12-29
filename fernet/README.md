@@ -14,10 +14,15 @@ The Python [cryptography library](https://pypi.org/project/cryptography/) uses F
 **Google Apps Script**
 ```javascript
 function fernetExample(){
+  // Set-Up
   var cleartext = "Hello Fernet"
   var key = "cw_0x689RpI-jtRR7oE8h_eQsKImvJapLeSbXpwF4e4="
+  
+  // Encrypt
   var ciphertext = encrypt(cleartext, key)
   Logger.log("Here is the ciphertext: "+ciphertext)
+  
+  // Decrypt
   var decrypted_clear = decrypt(ciphertext,key)
   Logger.log("Here is the decrypted cleartext: "+decrypted_clear)
 }
@@ -25,7 +30,9 @@ function fernetExample(){
 ```
 
 **Python**
+
 Encrypt and decrypt as you normally would with [cryptography](https://pypi.org/project/cryptography/)
+
 ```python
 from cryptography.fernet import Fernet
 
