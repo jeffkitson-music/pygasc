@@ -10,7 +10,7 @@ function example(){
 function exampleTwo(){
   var cleartext = "Hello Python!"
   key = getakey()
-
+  Logger.log("Here is the key: "+key)
   var ciphertext = encrypt(cleartext, key)
   Logger.log("Here is the ciphertext: "+ciphertext)
   var decrypted_clear = decrypt(ciphertext,key)
@@ -58,7 +58,7 @@ function deriveRandomKey(){
   
   // Base64 Encode the random string
   key  = Utilities.base64EncodeWebSafe(random_string)
-  Logger.log(key)
+  //Logger.log(key)
   
   // Finally
   return key;    
