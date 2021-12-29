@@ -35,25 +35,26 @@ function decrypt(ciphertext,key){
   return cleartext
 }
 
-function deriveRandomKey() {
+function deriveRandomKey(){
+  // with help from https://stackoverflow.com/questions/20767186/google-apps-script-random-string-generating?rq=1
   
   // Set variables
-  var key_length = 32
-  var s = ''; // random string
-  var r = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  
+  var random_string  ="";
+  var key_length = 32;
+
   // Create random string
-  for (var i=0; i < key_length; i++) { s += r.charAt(Math.floor(Math.random()*r.length)); }
-        
+  for (var i = 1; i < key_length ; i++) { 
+    random_string += String.fromCharCode(97 + Math.random()*10);
+  } 
+  //Logger.log(random_string)
+  
   // Base64 Encode the random string
-  key  = Utilities.base64EncodeWebSafe(s)
+  key  = Utilities.base64EncodeWebSafe(random_string)
   Logger.log(key)
-    
+  
   // Finally
-  return key;
-
-}
-
+  return key;    
+} 
 
 function deriveKeyFromPW() {
   // derives key from password/salt
