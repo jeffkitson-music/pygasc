@@ -34,7 +34,7 @@ cleartext = "Hello World"
 # Script will convert to string if a dictionary or is detected.
 # cleartext = {"hello":"world"} or cleartext = ["hello","world"] etc...
 
-ciphertext = pgasc.encypt(cleartext, password, salt)
+ciphertext = pgasc.encrypt(cleartext, password, salt)
 print("Ciphertext: ",ciphertext)
 
 decoded_cleartext = pgasc.decrypt(ciphertext, password, salt)
