@@ -10,6 +10,11 @@ The implementation uses the AES standard with PBKDF2 key derivation, and essenti
 - :lock: Encrypt in CryptoJS/Decrypt in Python
 - :lock: Encrypt in Python/Decrypt in CryptoJS
 
+## :package: JS Import
+```html
+<script type="text/javascript" src="https://jeffkitson-music.github.io/js/pygasc.min.js"></script>
+```
+
 ## :books: Dependencies 
 **Python**
 
@@ -41,6 +46,18 @@ decoded_cleartext = pgasc.decrypt(ciphertext, password, salt)
 print("Decoded Cleartext: ",decoded_cleartext)
 
 
+```
+**HTML**
+```
+<!--Import required scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="text/javascript" src="https://jeffkitson-music.github.io/js/pygasc.min.js"></script>
+
+<!--Your Code-->
+<script>
+pygascExample()
+</script>
 ```
 **Google Apps Script**
 ```javascript
