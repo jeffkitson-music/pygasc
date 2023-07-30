@@ -1,4 +1,4 @@
-// This multi-line comment is a problem for some interpreters (JSFiddle). Delete as needed.
+
 /*
 Generate a Fernet key from a password in JavaScript. Cross-compatiable with Python Cryptography.
 https://cryptography.io/en/latest/fernet/#using-passwords-with-fernet
@@ -8,8 +8,9 @@ crypto.js
 fernet.js
 
 Script Imports for HTML file (if not using NodeJS):
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fernet@0.4.0/fernetBrowser.min.js"></script>
+Note: Add the <> (this comment causes an error in JSFiddle if they are included)
+script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js" /script
+script src="https://cdn.jsdelivr.net/npm/fernet@0.4.0/fernetBrowser.min.js"/script
 
 Warning: This version performs all cryptography in the browser client-side. Use at your own risk. 
 */
