@@ -1,4 +1,7 @@
-# pyGAScrypto
+# :warning: This version (AES) has been depreciated. :warning:
+Everything has been upgraded to Fernet! 
+
+# pyGAScrypto (old!)
 Interoperabilty between Google Apps Script CryptoJS and Python cryptography.
 
 ## :lock: About
