@@ -3,6 +3,9 @@ Google Apps Script Wrapper for FernetJS
 https://github.com/csquared/fernet.js
 Browser version needed with one tiny modification. See fernetbrowserGAS.gs in this repo.
 
+This is cross-compatiable with Python Cryptography
+https://cryptography.io/en/latest/
+
 Key Derevation Function uses CryptoJS
 https://github.com/brix/crypto-js
 https://www.npmjs.com/package/crypto-js
