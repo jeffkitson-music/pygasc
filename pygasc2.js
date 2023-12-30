@@ -1,8 +1,9 @@
-// NOT DONE. DRAFT ONE.
+// Almost done. Still needs cleaning.
 
 class PYGASC{
 	constructor(){
-  	this.iterations = 480000;
+  	this.fernetIterations = 480000;
+    this.aesIterations = 5000;
   	this.mode = null; // AES or FERNET
     this.cleartext = null;
     this.ciphertext = null;
@@ -27,8 +28,8 @@ class PYGASC{
       var cleartext = JSON.stringify(cleartext)
     }
     // You can't break key stuff out to a different function. 
-    var iterations = 1000;
-  	var bytes = CryptoJS.PBKDF2(password, salt, { keySize: 256, iterations: iterations,hasher: CryptoJS.algo.SHA256 });
+    //var iterations = 1000;
+  	var bytes = CryptoJS.PBKDF2(password, salt, { keySize: 256, iterations: this.aesIterations,hasher: CryptoJS.algo.SHA256 });
   	var iv = CryptoJS.enc.Hex.parse(bytes.toString().slice(0, 32));
   	var key = CryptoJS.enc.Hex.parse(bytes.toString().slice(32, 96));
     
@@ -47,7 +48,8 @@ class PYGASC{
     }
   }
   fernetEncrypt(cleartext, password, salt){
-  	var secret = new fernet.Secret("cw_0x689RpI-jtRR7oE8h_eQsKImvJapLeSbXpwF4e4=");
+  	var fernetKey = this.getFernetKeyFromPassword(password, salt)
+    var secret = new fernet.Secret(fernetKey);
     //Normally time would default to (new Date()) and iv to something random.
 		var token = new fernet.Token({
       secret: secret,
@@ -58,14 +60,15 @@ class PYGASC{
     return ciphertext  	
   }
   fernetDecrypt(ciphertext, password, salt){
-  	var secrett = new fernet.Secret("cw_0x689RpI-jtRR7oE8h_eQsKImvJapLeSbXpwF4e4=");
-  	var tokenb = new fernet.Token({
-    secret: secrett,
+  	var fernetKey = this.getFernetKeyFromPassword(password, salt)
+    var secret = new fernet.Secret(fernetKey);
+  	var token = new fernet.Token({
+    secret: secret,
     token: ciphertext,
     ttl: 0
   })
 
-  var cleartext = tokenb.decode();
+  var cleartext = token.decode();
 
   return cleartext
   
@@ -75,8 +78,8 @@ class PYGASC{
     //var key = this.getAESkey(password, salt)
     //var decryptedWA = CryptoJS.AES.decrypt(ciphertext, key, { iv: iv}); // WA is wordarray - required. // NOT USED? WHAT THE FUCK?!
 
-    var iterations = 1000;
-  	var bytes = CryptoJS.PBKDF2(password, salt, { keySize: 256, iterations: iterations,hasher: CryptoJS.algo.SHA256 });
+    //var iterations = 1000;
+  	var bytes = CryptoJS.PBKDF2(password, salt, { keySize: 256, iterations: this.aesIterations,hasher: CryptoJS.algo.SHA256 });
   	var iv = CryptoJS.enc.Hex.parse(bytes.toString().slice(0, 32));
   	var key = CryptoJS.enc.Hex.parse(bytes.toString().slice(32, 96));
     
@@ -95,6 +98,25 @@ class PYGASC{
     }
     return cleartext
 	}
+  getFernetKeyFromPassword(password, salt) {
+  //4096 iterations is fast, 480000 is new standard but takes time...
+  var keyRaw = CryptoJS.PBKDF2(password, salt, {
+    keySize: 256 / 32,
+    iterations: this.fernetIterations,// 480000
+    hasher: CryptoJS.algo.SHA256
+  })
+  var keyHex = CryptoJS.enc.Hex.stringify(keyRaw)
+  var fernetKey = this.hexToBase64(keyHex)
+  return fernetKey
+}
+
+// https://stackoverflow.com/questions/23190056/hex-to-base64-converter-for-javascript
+	hexToBase64(hexstring) {
+  return btoa(hexstring.match(/\w{2}/g).map(function(a) {
+    return String.fromCharCode(parseInt(a, 16));
+  }).join(""));
+}
+
   isJson(str) {
     try {
         JSON.parse(str);
@@ -107,23 +129,27 @@ class PYGASC{
 
 
 
-function pygascExampleNew(){
+function example(){
 	var sample = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  console.log(sample)
-  var pw = "yourmom"
-  var salt = "goestocollege"
+  console.log("Sample Text: "+sample)
+  var pw = "hello"
+  var salt = "world"
 	var pygasc = new PYGASC()
   // FERNET
+  var fernetKey = pygasc.getFernetKeyFromPassword(pw, salt)
   var fernetCipherText = pygasc.encrypt(sample, pw, salt, mode="fernet")
   var fernetClearText = pygasc.decrypt(fernetCipherText, pw, salt, mode="fernet")
   console.log("=== FERNET ===")
-  console.log(fernetCipherText)
-  console.log(fernetClearText)
+  console.log("Fernet Key:" + fernetKey)
+  console.log("Fernet Ciphertext: "+fernetCipherText)
+  console.log("Fernet Cleartext: "+fernetClearText)
   
   // AES
   var aesCipherText = pygasc.encrypt(sample, pw, salt, mode="aes")
   var aesClearText = pygasc.decrypt(aesCipherText, pw, salt, mode="aes")
   console.log("=== AES ===")
-  console.log(aesCipherText)
-  console.log(aesClearText)
+  console.log("AES Ciphertext: "+aesCipherText)
+  console.log("AES Cleartext: "+aesClearText)
 }
+
+example()
