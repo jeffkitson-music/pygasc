@@ -1,4 +1,4 @@
-# pyGAScrypto
+# pygasc (formerly pyGASCrypto)
 Interoperabilty between Python cryptography and CryptoJS in JavaScript / Google Apps Script.
 
 ## :lock: About
